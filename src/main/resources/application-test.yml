@@ -1,0 +1,47 @@
+ip: 192.168.88.128
+redis.port: 6379
+redis.password: 123456
+
+mongodb.username: www
+mongodb.password: 123456
+mongodb.port: 27017
+mongodb.database: test
+
+rabbitmq.port: 5672
+rabbitmq.username: www
+rabbitmq.password: 123456
+
+spring:
+    datasource:
+        name: test
+#        url: jdbc:mysql://${ip}:3306/test
+        url: jdbc:postgresql://${ip}:5432/test
+        username: www
+        password: 123456
+        # 使用druid数据源
+#        driver-class-name: com.mysql.jdbc.Driver
+        driver-class-name: org.postgresql.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+    redis:
+        database: 0
+        host: ${ip}
+        port: ${redis.port}
+        password: ${redis.password}
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: -1
+        timeout: 0
+    data:
+      mongodb:
+        uri: mongodb://${mongodb.username}:${mongodb.password}@${ip}:${mongodb.port}/${mongodb.database}
+
+#    rabbitmq:
+#      host: ${ip}
+#      port: ${rabbitmq.port}
+#      username: ${rabbitmq.username}
+#      password: ${rabbitmq.password}
+
+
+

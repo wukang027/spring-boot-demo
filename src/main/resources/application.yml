@@ -1,0 +1,81 @@
+server:
+  port: 80
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+#    datasource:
+#        name: test
+##        url: jdbc:mysql://127.0.0.1:3306/test
+#        url: jdbc:postgresql://127.0.0.1:5432/test
+#        username: www
+#        password: 123456
+#        # 使用druid数据源
+##        driver-class-name: com.mysql.jdbc.Driver
+#        driver-class-name: org.postgresql.Driver
+#        type: com.alibaba.druid.pool.DruidDataSource
+##        connectionProperties: druid.stat.mergeSql=true
+#    redis:
+#        database: 0
+##        host: 192.168.88.128
+#        host: 127.0.0.1
+#        port: 6379
+##        password: 123456
+#        password:
+#        pool:
+#          max-active: 8
+#          max-idle: 8
+#          min-idle: 0
+#          max-wait: -1
+#        timeout: 0
+    http:
+      encoding:
+        charset: UTF-8
+        force: true
+        enabled: true
+
+      #模板引擎
+#    freemarker:
+#      cache: false
+#      request-context-attribute: request
+#      template-loader-path: classpath:/templates
+#      suffix: .htm
+#      prefix: /htm/
+
+    profiles:
+      active: dev
+
+#    jpa:
+#      database: mysql
+#      show-sql: true
+#      hibernate:
+#        ddl-auto: update
+#        naming:
+#          strategy: org.hibernate.cfg.DefaultComponentSafeNamingStrategy
+#      properties:
+#        hibernate:
+#          dialect: org.hibernate.dialect.MySQL5Dialect
+
+    thymeleaf:
+      cache: false
+      mode: LEGACYHTML5
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.jm.domain
+  check-config-location: true
+  config-location: classpath:mybatis-config.xml
+
+#pagehelper分页插件
+pagehelper:
+#    helperDialect: mysql
+    helperDialect: PostgreSQL
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+logging:
+#  path: D:/Workspaces/logs/springboot-log/
+#  file: springboot.log
+  level: debug
+#  config: classpath:logback.xml
+
+
